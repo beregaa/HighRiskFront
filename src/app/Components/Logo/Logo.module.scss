@@ -1,0 +1,27 @@
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+}
+
+.gothicLogo {
+  background-color: black;
+  color: white;
+  width: 300px;
+  font-size: 30px;
+}
+
+.barbieLogo {
+  background-color: rgb(245, 147, 164);
+  color: white;
+  width: 300px;
+  font-size: 30px;
+}
+
+.defaultLogo {
+  background-color: rgb(245, 245, 127);
+  color: rgb(3, 3, 3);
+  width: 300px;
+  font-size: 30px;
+}
