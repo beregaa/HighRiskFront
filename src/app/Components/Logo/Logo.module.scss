@@ -2,26 +2,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 300px;
+  cursor: pointer;
+  font-size: 44px;
 }
 
-.gothicLogo {
-  background-color: black;
+.edgyLogo {
   color: white;
-  width: 300px;
-  font-size: 30px;
 }
 
-.barbieLogo {
-  background-color: rgb(245, 147, 164);
-  color: white;
-  width: 300px;
-  font-size: 30px;
+.softLogo {
+  color: #FF527D;
 }
 
-.defaultLogo {
-  background-color: rgb(245, 245, 127);
+.basicLogo {
   color: rgb(3, 3, 3);
-  width: 300px;
-  font-size: 30px;
 }

@@ -9,29 +9,29 @@ const Logo = () => {
 
   const getLogoContent = () => {
     switch (theme) {
-      case LogoEnum.Gothic:
+      case LogoEnum.Edgy:
         return {
-          className: styles.gothicLogo,
-          text: "Reverse Gothic",
-          nextTheme: LogoEnum.Barbie,
+          className: styles.edgyLogo,
+          text: "Reverse Edgy",
+          nextTheme: LogoEnum.Soft,
         };
-      case LogoEnum.Barbie:
+      case LogoEnum.Soft:
         return {
-          className: styles.barbieLogo,
-          text: "Reverse Barbie",
-          nextTheme: LogoEnum.BASIC,
+          className: styles.softLogo,
+          text: "Reverse Soft",
+          nextTheme: LogoEnum.Basic,
         };
-      case LogoEnum.BASIC:
+      case LogoEnum.Basic:
         return {
-          className: styles.defaultLogo,
-          text: "Reverse Default",
-          nextTheme: LogoEnum.Gothic,
+          className: styles.basicLogo,
+          text: "Reverse Baisc",
+          nextTheme: LogoEnum.Edgy,
         };
       default:
         return {
-          className: styles.defaultLogo,
-          text: "Reverse Default",
-          nextTheme: LogoEnum.Gothic,
+          className: styles.basicLogo,
+          text: "Reverse Baisc",
+          nextTheme: LogoEnum.Edgy,
         };
     }
   };

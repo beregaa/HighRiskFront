@@ -4,7 +4,7 @@ import { LogoEnum } from '../enums/logoEnum.enum';
 
 
 
-export const themeState = atom<string>({
+export const themeState = atom<LogoEnum>({
   key: 'themeState', 
-  default: LogoEnum.Gothic, 
+  default: LogoEnum.Edgy, 
 });

@@ -1,5 +1,5 @@
 export enum LogoEnum {
-  Gothic = "gothic",
-  Barbie = "barbie",
-  BASIC = "basic",
+  Edgy = "edgy",
+  Soft = "soft",
+  Basic = "basic",
 }
