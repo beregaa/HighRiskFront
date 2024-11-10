@@ -14,7 +14,7 @@ const Header = () => {
   const colors = getColorByType(theme);
 
   return (
-    <div className={styles.header} style={{ background: colors.header }}>
+    <div className={styles.header} style={{ background: colors.headerBg }}>
       {/* {products?.map((product) => (
         <div className={styles.card} key={product.id}>{product.name}</div>
       ))} */}

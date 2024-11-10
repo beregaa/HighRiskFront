@@ -12,18 +12,23 @@ export default function Home() {
 
   const handleCardClick = () => {
     setIsRotated((prev) => !prev);
+    console.log(isRotated, "rot");
   };
 
   useEffect(() => {
-    handleCardClick();
+    setIsRotated(true);
   }, [theme]);
-
 
   const colors = getColorByType(theme);
 
   return (
-    <div className={`${styles.page} ${isRotated ? styles.rotated : ''}`} style={{ background: colors.body }}>
-      <Header />
+    <div style={{ background: colors.body }}>
+      <div
+        className={`${styles.header} ${isRotated ? styles.rotated : ""}`}
+        onClick={handleCardClick}
+      >
+        <Header />
+      </div>
     </div>
   );
 }

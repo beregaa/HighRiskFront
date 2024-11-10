@@ -6,9 +6,11 @@ import { useCallback } from "react";
 
 const Authorisation = () => {
 
+
+
   return (
     <div className={styles.wrap}>
-      <div className={styles.sign}>Sign Up / Sign In</div>
+      <img className={styles.logInIcon} src="icons/basic.png" alt="" />
     </div>
   );
 };
