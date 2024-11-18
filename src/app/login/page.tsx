@@ -57,7 +57,7 @@ const Login = () => {
               Submit
             </Button>
           </Form.Item>
-          Don't have an account?
+          <p>Dont have an account?</p>
           <Button type="link" onClick={() => router.push("/register")}>
             register
           </Button>

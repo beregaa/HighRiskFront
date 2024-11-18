@@ -46,7 +46,8 @@ const Logo = () => {
       <div
         className={className}
         onClick={() => {
-          setTheme(nextTheme), router.push("/");
+          setTheme(nextTheme);
+          router.push("/");
         }}
       >
         {text}
