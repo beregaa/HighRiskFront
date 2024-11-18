@@ -2,14 +2,14 @@
 import styles from "./Header.module.scss";
 import Logo from "../Logo/Logo";
 import Authorisation from "../Authorisation/Authorisation";
-import { useCRUD } from "@/api/useCRUD";
+// import { useCRUD } from "@/api/useCRUD";
 import { themeState } from "@/app/atoms/themeState";
 import { useRecoilState } from "recoil";
 import { LogoEnum } from "@/app/enums/logoEnum.enum";
 import { getColorByType } from "@/app/helpers/getColorsByType";
 
 const Header = () => {
-  const { data: products } = useCRUD<any[]>("products");
+  // const { data: products } = useCRUD<any[]>("products");
   const [theme, setTheme] = useRecoilState(themeState);
   const colors = getColorByType(theme);
 
