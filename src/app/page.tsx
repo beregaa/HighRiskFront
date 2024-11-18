@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import Header from "./Components/Header/Header";
+import Header from "../components/Header/Header";
 import styles from "./page.module.css";
 import { getColorByType } from "./helpers/getColorsByType";
 import { useRecoilState } from "recoil";

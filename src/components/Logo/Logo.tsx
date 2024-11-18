@@ -3,9 +3,12 @@ import styles from "./Logo.module.scss";
 import { LogoEnum } from "@/app/enums/logoEnum.enum";
 import { useRecoilState } from "recoil";
 import { themeState } from "@/app/atoms/themeState";
+import { useRouter } from "next/navigation";
 
 const Logo = () => {
   const [theme, setTheme] = useRecoilState(themeState);
+
+  const router = useRouter();
 
   const getLogoContent = () => {
     switch (theme) {
@@ -39,11 +42,16 @@ const Logo = () => {
   const { className, text, nextTheme } = getLogoContent();
 
   return (
-  <div className={styles.logoWrapper}>
-      <div className={className} onClick={() => setTheme(nextTheme)}>
-      {text}
+    <div className={styles.logoWrapper}>
+      <div
+        className={className}
+        onClick={() => {
+          setTheme(nextTheme), router.push("/");
+        }}
+      >
+        {text}
+      </div>
     </div>
-  </div>
   );
 };
 
