@@ -12,7 +12,7 @@ export default function RootLayout({
     <html lang="en">
       <RecoilRoot>
         <body>
-          {/* <Header /> */}
+          <Header />
           {children}
         </body>
       </RecoilRoot>

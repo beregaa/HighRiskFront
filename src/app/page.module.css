@@ -1,11 +1,28 @@
-.header {
-  position: relative;
-  transition: transform 2s ease-in-out;
-  will-change: transform;
+.wrapper {
+  height: 100vh;
 }
 
-.rotated {
-  animation: rotateAnimation 3s forwards;
+
+.cards {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 0 50px;
+}
+
+.card {
+  font-size: 30px;
+  max-width: 400px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  border: 2px dotted white;
+}
+@property --pink {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: hotpink;
 }
 
 @keyframes rotateAnimation {
