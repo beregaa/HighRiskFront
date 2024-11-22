@@ -1,7 +1,11 @@
-"use client";
 import Header from "@/components/Header/Header";
 import "./globals.css";
-import { RecoilRoot } from "recoil";
+import RecoilContextProvider from "./lib/recoilContextProvider";
+
+export const metadata = {
+  tittle: "reverse app",
+  description: "a new brand which represents uniquenes",
+};
 
 export default function RootLayout({
   children,
@@ -10,12 +14,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <RecoilRoot>
-        <body>
+      <body>
+        <RecoilContextProvider>
           <Header />
           {children}
-        </body>
-      </RecoilRoot>
+        </RecoilContextProvider>
+      </body>
     </html>
   );
 }

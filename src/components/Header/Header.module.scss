@@ -26,6 +26,14 @@
   will-change: transform;
 }
 
+
+.logOut{
+  background-color: red;
+  color: white;
+  max-width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+}
 .rotated {
   animation: rotateAnimation 3s forwards;
 }

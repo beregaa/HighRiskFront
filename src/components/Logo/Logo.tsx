@@ -2,11 +2,11 @@
 import styles from "./Logo.module.scss";
 import { LogoEnum } from "@/app/enums/logoEnum.enum";
 import { useRecoilState } from "recoil";
-import { themeState } from "@/app/atoms/themeState";
+import { themeNameState } from "@/app/atoms/themeState";
 import { useRouter } from "next/navigation";
 
 const Logo = () => {
-  const [theme, setTheme] = useRecoilState(themeState);
+  const [theme, setTheme] = useRecoilState(themeNameState);
 
   const router = useRouter();
 

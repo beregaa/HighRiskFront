@@ -1,21 +1,26 @@
-import { LogoEnum } from "@/app/enums/logoEnum.enum";
+import Image from "next/image";
 import styles from "./Authorisation.module.scss";
-import { themeState } from "@/app/atoms/themeState";
+import Link from "next/link";
+import { getTheme } from "@/app/helpers/getTheme.helper";
+import { themeNameState } from "@/app/atoms/themeState";
 import { useRecoilState } from "recoil";
-import { useCallback } from "react";
-import { useRouter } from "next/navigation";
 
 const Authorisation = () => {
-  const route = useRouter();
+  const [themeName, setThemeName] = useRecoilState(themeNameState);
+
+  const theme = getTheme(themeName);
 
   return (
     <div className={styles.wrap}>
-      <img
-        className={styles.logInIcon}
-        src="icons/basic.png"
-        onClick={() => route.push("login")}
-        alt=""
-      />
+      <Link href={"/login"}>
+        <Image
+          src={theme.authlogo}
+          width={150}
+          height={150}
+          alt="Picture of the author"
+          priority
+        />
+      </Link>
     </div>
   );
 };
