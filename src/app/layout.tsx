@@ -1,22 +1,27 @@
-import Header from "@/components/Header/Header";
 import "./globals.css";
-import RecoilContextProvider from "./lib/recoilContextProvider";
+import RecoilContextProvider from "../lib/recoilContextProvider";
+import MainHeader from "@/components/MainHeader/MainHeader";
+import { Days_One } from "next/font/google";
+import ImageSlideshow from "@/components/SlideImage/ImageSlideshow";
+
+const daysOne = Days_One({ weight: "400", subsets: ["latin"] });
 
 export const metadata = {
-  tittle: "reverse app",
-  description: "a new brand which represents uniquenes",
+  title: "HighRIsk App",
+  description: "A new brand which will conquer world market",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body>
+      <body className={daysOne.className}>
         <RecoilContextProvider>
-          <Header />
+          <MainHeader />
+          <ImageSlideshow/>
           {children}
         </RecoilContextProvider>
       </body>

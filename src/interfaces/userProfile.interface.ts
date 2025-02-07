@@ -1,4 +1,4 @@
-import { userRolesEnum } from "@/app/enums/userRoles.enum";
+import { userRolesEnum } from "@/enums/userRoles.enum";
 
 export interface UserProfileInterface {
   exp: number;

@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Days+One&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -10,12 +18,18 @@
   }
 }
 
+html {
+  font-family: "Merriweather", serif;
+}
 
+body {
+  font-family: "Days One", sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+ul {
+  list-style: none;
 }
 
 a {
@@ -23,8 +37,13 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.error {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.days-one-regular {
+  font-family: "Days One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
