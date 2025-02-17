@@ -3,13 +3,12 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Banner from "/public/Banner.png";
-import logo from "/public/Logo.png";
+
 import styles from "./ImageSlideshow.module.scss";
 
 const images = [
   { image: Banner, alt: "banner" },
   { image: Banner, alt: "banner" },
-  { image: logo, alt: "logo" },
 ];
 
 const ImageSlideshow = () => {
@@ -20,7 +19,7 @@ const ImageSlideshow = () => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex < images.length - 1 ? prevIndex + 1 : 0
       );
-    }, 2000000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);

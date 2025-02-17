@@ -4,6 +4,8 @@ import Logo from "../Logo/Logo";
 import styles from "./MainHeader.module.scss";
 import NavLink from "./NavLink/NavLink";
 
+import User from "../User/User";
+
 const MainHeader = () => {
   return (
     <header className={styles.wrapper}>
@@ -21,8 +23,7 @@ const MainHeader = () => {
             </li>
           </ul>
         </nav>
-
-        <Authorisation />
+        <User />
       </div>
     </header>
   );

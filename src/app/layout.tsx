@@ -1,5 +1,5 @@
 import "./globals.css";
-import RecoilContextProvider from "../lib/recoilContextProvider";
+import ContextProvider from "../context/ContextProvider";
 import MainHeader from "@/components/MainHeader/MainHeader";
 import { Days_One } from "next/font/google";
 import ImageSlideshow from "@/components/SlideImage/ImageSlideshow";
@@ -19,11 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={daysOne.className}>
-        <RecoilContextProvider>
+        <ContextProvider>
           <MainHeader />
-          <ImageSlideshow/>
+      
           {children}
-        </RecoilContextProvider>
+        </ContextProvider>
       </body>
     </html>
   );

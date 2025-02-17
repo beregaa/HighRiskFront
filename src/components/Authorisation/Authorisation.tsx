@@ -15,7 +15,7 @@ const Authorisation = () => {
   const onLogin = async (values: any) => {
     try {
       const response = await axios.post(
-        "https://back.reverse.com.ge/auth/login",
+        "https://highriskback.onrender.com/auth/login",
         values
       );
       localStorage.setItem("user", JSON.stringify(response.data));
