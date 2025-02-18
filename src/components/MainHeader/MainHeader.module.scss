@@ -29,5 +29,37 @@
 }
 
 .nav {
-  flex: 1;
+  
+  width: 100%;
+  padding: 0 20px 0 20px;
 }
+.navItems {
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+}
+
+.starText {
+  position: relative;
+  display: inline-block; 
+}
+
+.star {
+  position: absolute;
+  top: 12px;
+  left: 90%;
+  z-index: 2;
+
+  filter: drop-shadow(0 0 8px rgba(182, 125, 255, 0.8)); 
+  animation: glow 1.5s infinite alternate ease-in-out; 
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(182, 125, 255, 0.6));
+  }
+  100% {
+    filter: drop-shadow(0 0 15px rgba(182, 125, 255, 1));
+  }
+}
+

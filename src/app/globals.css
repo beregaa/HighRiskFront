@@ -27,6 +27,16 @@ body {
   background-color: var(--background);
   color: var(--foreground);
 }
+.ant-form-item-label {
+  font-family: "Days One", sans-serif !important; 
+  color: var(--foreground); 
+}
+
+
+body .ant-form-item-required::before {
+  display: none !important;
+  content: none !important;
+}
 
 ul {
   list-style: none;

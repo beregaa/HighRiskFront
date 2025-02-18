@@ -1,16 +1,27 @@
 "use client";
 import Image from "next/image";
-import styles from "./Authorisation.module.scss";
-import Link from "next/link";
+import styles from "./SignInDropDown.module.scss";
 import Popover from "antd/es/popover";
 import { Button, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { useEffect } from "react";
+import { userState } from "@/atoms/userToken";
+import { useSetRecoilState } from "recoil";
 
-const Authorisation = () => {
+const SignInDropDown = () => {
   const [form] = Form.useForm();
 
   const router = useRouter();
+
+  const setUser = useSetRecoilState(userState);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   const onLogin = async (values: any) => {
     try {
@@ -19,6 +30,7 @@ const Authorisation = () => {
         values
       );
       localStorage.setItem("user", JSON.stringify(response.data));
+      setUser(response.data);
     } catch (error) {
       console.error("API Error:", error);
     }
@@ -47,16 +59,19 @@ const Authorisation = () => {
       >
         <Input.Password placeholder="Password" />
       </Form.Item>
-      <div className={styles.actionsWrap}  style={{ width: '100%' , justifyContent:'center' }}>
+      <div
+        className={styles.actionsWrap}
+        style={{ width: "100%", justifyContent: "center" }}
+      >
         <Form.Item>
           <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
             Submit
           </Button>
         </Form.Item>
-        <p className={styles.forgot} >Forgot your password?</p>
+        <p className={styles.forgot}>Forgot your password?</p>
         <Button
           type="link"
-          onClick={() => router.push("/register")}
+          onClick={() => router.push("/signup")}
           style={{ width: "100%" }}
         >
           Create account
@@ -81,12 +96,8 @@ const Authorisation = () => {
           priority
         />
       </Popover>
-      <Link
-        href={"/login"}
-        // className={path.startsWith("/login") ? styles.active : undefined}
-      ></Link>
     </div>
   );
 };
 
-export default Authorisation;
+export default SignInDropDown;

@@ -1,0 +1,38 @@
+.wrap h2 {
+  color: white;
+  margin: 0 auto;
+  width: 100%;
+  padding: 40px 0 40px 0px;
+  text-align: center;
+}
+.Inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.antForm {
+  width: 100% !important;
+  max-width: 800px;
+}
+
+.submit {
+  background-color: #9b9d9c4a;
+  text-align: center;
+  padding: 10px;
+  color: #ffffff;
+  border-radius: 3px;
+  max-width: 204px;
+  height: 45px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30.55px;
+  border: 0;
+  cursor: pointer;
+
+  display: block;
+  margin: 0 auto; 
+}
+.terms{
+  color: #B67DFF;
+  text-decoration: underline;
+}
