@@ -30,9 +30,28 @@
   cursor: pointer;
 
   display: block;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
-.terms{
-  color: #B67DFF;
+.terms {
+  color: #b67dff;
   text-decoration: underline;
+}
+
+.bigTechSignUp {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  gap: 24px;
+}
+.google {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  background-color: #3b3e3d;
+  padding: min(2px, 1%) min(10px, 3%) min(2px, 1%) min(10px, 3%);
+  max-width: 432px;
 }

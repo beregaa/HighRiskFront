@@ -1,13 +1,17 @@
 "use client";
-import { Form, Input, Button, Row, Col, Checkbox, Select } from "antd";
-import style from "./page.module.scss";
+import { Form, Input, Row, Col, Checkbox, Select } from "antd";
+import styles from "./page.module.scss";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useSetRecoilState } from "recoil";
+import { userState } from "@/atoms/userToken";
+import Cookies from "js-cookie";
+import { loginUser } from "@/helpers/onLogin.helper";
 
 type FieldType = {
   username: string;
   email: string;
-  number: string;
+  phoneNumber: string;
   gender: string;
   password: string;
   confirmPassword: string;
@@ -16,32 +20,35 @@ type FieldType = {
 
 const SignUp = () => {
   const [form] = Form.useForm();
-  const router = useRouter();
+  const setUser = useSetRecoilState(userState);
 
   const onSignUp = async (values: FieldType) => {
-    console.log(values);
     try {
-      const response = await axios.post(
-        "https://highriskback.onrender.com/users",
-        values
-      );
-      localStorage.setItem("user", JSON.stringify(response.data));
+      await axios.post("https://highriskback.onrender.com/users", values);
 
-      router.push("/");
+      await loginUser(
+        { email: values.email, password: values.password },
+        setUser
+      );
     } catch (error) {
       console.error("API Error:", error);
     }
   };
 
+  const handleGoogleLogin = () => {
+    window.location.href =
+      "https://highriskback.onrender.com/auth/google/callback";
+  };
+
   return (
-    <div className={style.wrap}>
+    <div className={styles.wrap}>
       <h2>Create Account</h2>
-      <div className={style.Inputs}>
+      <div className={styles.Inputs}>
         <Form
           form={form}
           onFinish={onSignUp}
           layout="vertical"
-          className={style.antForm}
+          className={styles.antForm}
         >
           <Row gutter={16}>
             <Col span={12}>
@@ -131,18 +138,25 @@ const SignUp = () => {
           >
             <Checkbox>
               Creating your account and accepting{" "}
-              <a className={style.terms} href="/terms">
+              <a className={styles.terms} href="/terms">
                 Terms and Conditions
               </a>
             </Checkbox>
           </Form.Item>
 
           <Form.Item>
-            <button type="submit" className={style.submit}>
+            <button type="submit" className={styles.submit}>
               CREATE
             </button>
           </Form.Item>
         </Form>
+      </div>
+
+      <div className={styles.bigTechSignUp}>
+        <div className={styles.google} onClick={handleGoogleLogin}>
+          <img src="/google.png" alt="Google" />
+          <span>Sign up with Google</span>
+        </div>
       </div>
     </div>
   );

@@ -2,24 +2,25 @@
 import Image from "next/image";
 import styles from "./SignInDropDown.module.scss";
 import Popover from "antd/es/popover";
-import { Button, Form, Input } from "antd";
-import { useRouter } from "next/navigation";
+import { Form } from "antd";
 import axios from "axios";
 import { useEffect } from "react";
+import Cookies from "js-cookie";
 import { userState } from "@/atoms/userToken";
 import { useSetRecoilState } from "recoil";
+import SignInDropDownForm from "./SignInDropDownForm/SignInDropDownForm";
+import { useRouter } from "next/navigation";
 
 const SignInDropDown = () => {
   const [form] = Form.useForm();
-
-  const router = useRouter();
-
   const setUser = useSetRecoilState(userState);
 
+
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
+    const storedUser = Cookies.get("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
+
     }
   }, []);
 
@@ -29,56 +30,17 @@ const SignInDropDown = () => {
         "https://highriskback.onrender.com/auth/login",
         values
       );
-      localStorage.setItem("user", JSON.stringify(response.data));
+      Cookies.set("user", JSON.stringify(response.data), { expires: 7, sameSite: "Lax" });
       setUser(response.data);
+      window.location.reload(); 
+  
     } catch (error) {
       console.error("API Error:", error);
     }
   };
-  const content = (
-    <Form
-      form={form}
-      onFinish={onLogin}
-      layout="vertical"
-      className={styles.antForm}
-    >
-      <Form.Item
-        label="Email"
-        name="email"
-        rules={[
-          { required: true, message: "Please enter your email" },
-          { type: "email", message: "Please enter a valid email" },
-        ]}
-      >
-        <Input placeholder="Email" />
-      </Form.Item>
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[{ required: true, message: "Please enter your password" }]}
-      >
-        <Input.Password placeholder="Password" />
-      </Form.Item>
-      <div
-        className={styles.actionsWrap}
-        style={{ width: "100%", justifyContent: "center" }}
-      >
-        <Form.Item>
-          <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
-            Submit
-          </Button>
-        </Form.Item>
-        <p className={styles.forgot}>Forgot your password?</p>
-        <Button
-          type="link"
-          onClick={() => router.push("/signup")}
-          style={{ width: "100%" }}
-        >
-          Create account
-        </Button>
-      </div>
-    </Form>
-  );
+  
+
+  const content = <SignInDropDownForm form={form} onLogin={onLogin} />;
 
   return (
     <div className={styles.wrap}>
