@@ -1,3 +1,9 @@
 .logoWrap {
-  cursor: pointer;
+  width: 123px;
+  display: flex;
+  justify-content: center;
+}
+
+.logoWrap img {
+  width: 100%;
 }

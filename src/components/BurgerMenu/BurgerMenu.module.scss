@@ -1,0 +1,45 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.navItems {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  font-family: Days One;
+  font-weight: 400;
+  line-height: 30.55px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+}
+
+.burgerHeader {
+  text-align: "center";
+  width: "100%";
+  display: flex;
+  justify-content: space-between;
+}
+.starText {
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  margin-left: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    display: none;
+  }
+}

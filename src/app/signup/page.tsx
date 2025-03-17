@@ -3,10 +3,9 @@ import { Form, Input, Row, Col, Checkbox, Select } from "antd";
 import styles from "./page.module.scss";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useSetRecoilState } from "recoil";
-import { userState } from "@/atoms/userToken";
 import Cookies from "js-cookie";
 import { loginUser } from "@/helpers/onLogin.helper";
+import { useUserStore } from "@/stores/userStore";
 
 type FieldType = {
   username: string;
@@ -20,16 +19,12 @@ type FieldType = {
 
 const SignUp = () => {
   const [form] = Form.useForm();
-  const setUser = useSetRecoilState(userState);
 
   const onSignUp = async (values: FieldType) => {
     try {
       await axios.post("https://highriskback.onrender.com/users", values);
 
-      await loginUser(
-        { email: values.email, password: values.password },
-        setUser
-      );
+      await loginUser({ email: values.email, password: values.password });
     } catch (error) {
       console.error("API Error:", error);
     }

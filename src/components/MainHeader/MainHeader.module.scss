@@ -29,10 +29,10 @@
 }
 
 .nav {
-  
   width: 100%;
   padding: 0 20px 0 20px;
 }
+
 .navItems {
   display: flex;
   justify-content: center;
@@ -63,3 +63,8 @@
   }
 }
 
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+}

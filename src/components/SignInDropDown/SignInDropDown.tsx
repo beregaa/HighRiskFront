@@ -3,44 +3,24 @@ import Image from "next/image";
 import styles from "./SignInDropDown.module.scss";
 import Popover from "antd/es/popover";
 import { Form } from "antd";
-import axios from "axios";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
-import { userState } from "@/atoms/userToken";
-import { useSetRecoilState } from "recoil";
+import { useUserStore } from "@/stores/userStore";
 import SignInDropDownForm from "./SignInDropDownForm/SignInDropDownForm";
-import { useRouter } from "next/navigation";
+import { loginUser } from "@/helpers/onLogin.helper";
 
 const SignInDropDown = () => {
   const [form] = Form.useForm();
-  const setUser = useSetRecoilState(userState);
-
+  const setUser = useUserStore((state) => state.setUser);
 
   useEffect(() => {
     const storedUser = Cookies.get("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
-
     }
-  }, []);
+  }, [setUser]);
 
-  const onLogin = async (values: any) => {
-    try {
-      const response = await axios.post(
-        "https://highriskback.onrender.com/auth/login",
-        values
-      );
-      Cookies.set("user", JSON.stringify(response.data), { expires: 7, sameSite: "Lax" });
-      setUser(response.data);
-      window.location.reload(); 
-  
-    } catch (error) {
-      console.error("API Error:", error);
-    }
-  };
-  
-
-  const content = <SignInDropDownForm form={form} onLogin={onLogin} />;
+  const content = <SignInDropDownForm form={form} onLogin={loginUser} />;
 
   return (
     <div className={styles.wrap}>
@@ -54,7 +34,7 @@ const SignInDropDown = () => {
           src={"/ProfileIcon.png"}
           width={32}
           height={32}
-          alt="Picture of the author"
+          alt="Profile Icon"
           priority
         />
       </Popover>

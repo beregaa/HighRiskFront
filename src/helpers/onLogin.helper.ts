@@ -1,7 +1,10 @@
+import { useUserStore } from "@/stores/userStore";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-export const loginUser = async (values: any, setUser: (user: any) => void) => {
+export const loginUser = async (values: any) => {
+  const setUser = useUserStore((state) => state.setUser);
+
   try {
     const response = await axios.post(
       "https://highriskback.onrender.com/auth/login",
