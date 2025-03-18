@@ -30,7 +30,13 @@ const MainHeader = () => {
             ))}
           </ul>
         </nav>
-        <User />
+        <div className={styles.icons}>
+          <div className={styles.noMobile}>
+            <User />
+          </div>
+          <img className={styles.noMobile} src="/cart.png" />
+          <img src="/search.png" />
+        </div>
       </div>
       <BurgerMenu />
     </header>

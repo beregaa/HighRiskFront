@@ -20,10 +20,8 @@ const BurgerMenu: React.FC = () => {
 
   return (
     <>
-      <Space style={{}} className={styles.wrapper}>
-        <Button type="primary" onClick={showDrawer}>
-          <img src="/Burger_menu.png" alt="Burger Menu" />
-        </Button>
+      <Space className={styles.wrapper}>
+        <img className={styles.triggerBtn} onClick={showDrawer} src="/Burger_menu.png" alt="Burger Menu" />
       </Space>
 
       <Drawer
@@ -31,7 +29,7 @@ const BurgerMenu: React.FC = () => {
           <div className={styles.burgerHeader} onClick={onClose}>
             <Logo />
 
-            <img src="/Burger_menu.png" alt="Burger Menu" />
+            <img className={styles.triggerBtn} src="/Burger_menu.png" alt="Burger Menu" />
           </div>
         }
         placement={"top"}
@@ -40,6 +38,7 @@ const BurgerMenu: React.FC = () => {
         open={open}
         key={"top"}
         width="100%"
+        className={styles.Drawer}
       >
         <nav className={styles.nav}>
           <ul className={styles.navItems}>

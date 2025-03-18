@@ -13,6 +13,10 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
 }
 
 .content {
@@ -39,9 +43,15 @@
   gap: 45px;
 }
 
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .starText {
   position: relative;
-  display: inline-block; 
+  display: inline-block;
 }
 
 .star {
@@ -50,8 +60,8 @@
   left: 90%;
   z-index: 2;
 
-  filter: drop-shadow(0 0 8px rgba(182, 125, 255, 0.8)); 
-  animation: glow 1.5s infinite alternate ease-in-out; 
+  filter: drop-shadow(0 0 8px rgba(182, 125, 255, 0.8));
+  animation: glow 1.5s infinite alternate ease-in-out;
 }
 
 @keyframes glow {
@@ -66,5 +76,11 @@
 @media (max-width: 768px) {
   .nav {
     display: none;
+  }
+  .noMobile {
+    display: none;
+  }
+  .wrapper{
+    padding: 16px 24px 16px 0px;
   }
 }
