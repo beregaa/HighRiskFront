@@ -5,20 +5,17 @@ import Popover from "antd/es/popover";
 import { Form } from "antd";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
-import { useUserStore } from "@/stores/userStore";
 import SignInDropDownForm from "./SignInDropDownForm/SignInDropDownForm";
-import { loginUser } from "@/helpers/onLogin.helper";
+import  loginUser  from "@/helpers/onLogin.helper";
 
 const SignInDropDown = () => {
   const [form] = Form.useForm();
-  const setUser = useUserStore((state) => state.setUser);
 
   useEffect(() => {
     const storedUser = Cookies.get("user");
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
     }
-  }, [setUser]);
+  }, []);
 
   const content = <SignInDropDownForm form={form} onLogin={loginUser} />;
 

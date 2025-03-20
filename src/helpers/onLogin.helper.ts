@@ -2,9 +2,7 @@ import { useUserStore } from "@/stores/userStore";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-export const loginUser = async (values: any) => {
-  const setUser = useUserStore((state) => state.setUser);
-
+export default async function LoginUser(values: any) {
   try {
     const response = await axios.post(
       "https://highriskback.onrender.com/auth/login",
@@ -15,9 +13,8 @@ export const loginUser = async (values: any) => {
       expires: 7,
       sameSite: "Lax",
     });
-    setUser(response.data);
     window.location.href = "/";
   } catch (error) {
     console.error("API Error:", error);
   }
-};
+}

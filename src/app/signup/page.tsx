@@ -2,10 +2,7 @@
 import { Form, Input, Row, Col, Checkbox, Select } from "antd";
 import styles from "./page.module.scss";
 import axios from "axios";
-import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
-import { loginUser } from "@/helpers/onLogin.helper";
-import { useUserStore } from "@/stores/userStore";
+import  loginUser  from "@/helpers/onLogin.helper";
 
 type FieldType = {
   username: string;
